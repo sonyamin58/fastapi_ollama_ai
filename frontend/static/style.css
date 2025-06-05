@@ -1,0 +1,173 @@
+body {
+    font-family: 'Google Sans', sans-serif; /* Jika punya font Google Sans, kalau tidak default */
+    background-color: #f0f0f0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    color: #333;
+}
+
+.chat-container {
+    background-color: #fff;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    width: 90%;
+    max-width: 800px;
+    height: 90vh;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.chat-header {
+    background-color: #6200EE; /* Warna ungu */
+    color: #fff;
+    padding: 15px 20px;
+    border-top-left-radius: 12px;
+    border-top-right-radius: 12px;
+    font-size: 1.2em;
+    font-weight: 500;
+    text-align: center;
+}
+
+.chat-messages {
+    flex-grow: 1;
+    padding: 20px;
+    overflow-y: auto;
+    background-color: #f9f9f9;
+    scroll-behavior: smooth;
+}
+
+.message {
+    margin-bottom: 15px;
+    padding: 12px 18px;
+    border-radius: 20px;
+    max-width: 80%;
+    word-wrap: break-word;
+    line-height: 1.6;
+}
+
+.user-message {
+    background-color: #e0f2f7; /* Biru muda */
+    align-self: flex-end;
+    margin-left: auto;
+    border-bottom-right-radius: 5px;
+}
+
+.ai-message {
+    background-color: #e8eaf6; /* Ungu muda */
+    align-self: flex-start;
+    margin-right: auto;
+    border-bottom-left-radius: 5px;
+}
+
+.system-message {
+    background-color: #fff3e0; /* Oranye muda */
+    text-align: center;
+    font-style: italic;
+    color: #555;
+    margin: 0 auto 15px auto;
+    max-width: 90%;
+    border-radius: 10px;
+}
+
+.chat-input-area {
+    display: flex;
+    padding: 15px 20px;
+    border-top: 1px solid #eee;
+    background-color: #fff;
+    align-items: center;
+}
+
+#user-input {
+    flex-grow: 1;
+    border: 1px solid #ddd;
+    border-radius: 25px;
+    padding: 10px 15px;
+    font-size: 1em;
+    resize: none; /* Nonaktifkan resize manual */
+    overflow: hidden; /* Sembunyikan scrollbar awal */
+    max-height: 150px; /* Batasi ketinggian maksimum */
+    transition: all 0.2s ease-in-out;
+}
+
+#user-input:focus {
+    border-color: #6200EE;
+    box-shadow: 0 0 0 2px rgba(98, 0, 238, 0.2);
+    outline: none;
+}
+
+#send-button {
+    background-color: #6200EE;
+    color: #fff;
+    border: none;
+    border-radius: 25px;
+    padding: 10px 20px;
+    margin-left: 10px;
+    cursor: pointer;
+    font-size: 1em;
+    transition: background-color 0.2s ease;
+}
+
+#send-button:hover {
+    background-color: #3700B3;
+}
+
+/* Styling untuk blok kode */
+.ai-message pre {
+    background-color: #272822; /* Warna latar belakang gelap untuk highlight.js */
+    padding: 10px;
+    border-radius: 8px;
+    overflow-x: auto;
+    margin-top: 10px;
+}
+
+.ai-message pre code {
+    color: #f8f8f2; /* Warna teks kode */
+    font-family: 'Fira Code', 'Roboto Mono', monospace; /* Font monospace */
+    font-size: 0.9em;
+}
+
+/* Tombol salin kode (tambahan) */
+.code-block-container {
+    position: relative;
+    margin-top: 10px;
+}
+
+.copy-button {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    background-color: rgba(255, 255, 255, 0.2);
+    color: #fff;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 0.8em;
+    opacity: 0.8;
+    transition: opacity 0.2s ease;
+}
+
+.copy-button:hover {
+    opacity: 1;
+}
+
+/* Dalam style.css */
+.icon-button {
+    background: none;
+    border: none;
+    font-size: 1.5em; /* Ukuran ikon */
+    cursor: pointer;
+    margin-right: 10px;
+    padding: 0;
+    line-height: 1;
+    color: #555;
+    transition: color 0.2s ease;
+}
+
+.icon-button:hover {
+    color: #6200EE;
+}

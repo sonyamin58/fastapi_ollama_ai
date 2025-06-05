@@ -1,0 +1,51 @@
+# my-ai-portfolio-fastapi/docker-compose.yml
+version: '3.8'
+
+name: fastapi_ollama_api
+services:
+  ollama-server:
+    container_name: agent_ai
+    build:
+      context: .
+      dockerfile: Dockerfile.ollama
+      args:
+        OLLAMA_MODEL_NAME: deepseek-r1:1.5b # Ganti jika Anda menggunakan model lain
+    ports:
+      - "11434:11434"
+    healthcheck: # <-- PASTIKAN BAGIAN INI ADA DAN BENAR
+      test: ["CMD-SHELL", "curl -f http://localhost:11434 || exit 1"]
+      interval: 10s
+      timeout: 5s
+      retries: 12 # Tingkatkan retries untuk memberi lebih banyak waktu pada Ollama
+      start_period: 30s # Beri waktu startup awal sebelum healthcheck dimulai
+    volumes:
+      - fastapi_ollama_api:/root/.ollama
+    restart: always
+
+  api-app:
+    container_name: app
+    build:
+      context: .
+      dockerfile: Dockerfile.app
+    ports:
+      - "8001:8001" # Port untuk FastAPI
+    environment:
+      OLLAMA_MODEL_NAME: deepseek-r1:1.5b # Pastikan nama model konsisten
+    depends_on:
+      ollama-server: # Pastikan ollama-server berjalan sebelum api-app
+        condition: service_healthy # Pastikan ollama-server sehat sebelum memulai api-app
+    restart: on-failure
+
+  frontend-app:
+    container_name: web
+    build:
+      context: .
+      dockerfile: Dockerfile.frontend
+    ports:
+      - "8000:80" # Port untuk frontend (HTML/CSS/JS)
+    depends_on:
+      - api-app # Frontend tergantung pada API untuk berfungsi penuh
+    restart: on-failure
+
+volumes:
+  fastapi_ollama_api: # Volume untuk menyimpan model Ollama agar tidak perlu mengunduh ulang

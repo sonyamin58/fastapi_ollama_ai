@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Chatbot - Gemini Style</title>
+    <link rel="stylesheet" href="/static/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/atom-one-dark.min.css">
+</head>
+<body>
+    <div class="chat-container">
+        <header class="chat-header">
+            <h1>AI Chat</h1>
+        </header>
+        <div class="chat-messages" id="chat-messages">
+            <div class="message system-message">Selamat datang! Tanyakan sesuatu kepada saya.</div>
+        </div>
+        <div class="chat-input-area">
+            <input type="file" id="image-input" accept="image/*" style="display: none;">
+            <button id="upload-button" class="icon-button">🖼️</button> <textarea id="user-input" placeholder="Ketik pesan Anda..." rows="1"></textarea>
+            <button id="send-button">Kirim</button>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/markdown-it/13.0.1/markdown-it.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+    <script src="/static/script.js"></script>
+</body>
+</html>

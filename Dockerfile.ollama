@@ -1,0 +1,14 @@
+# my-ai-portfolio-fastapi/Dockerfile.ollama
+FROM ollama/ollama
+
+# Install curl (tetap diperlukan)
+RUN apt-get update && apt-get install -y curl
+
+# Salin script entrypoint yang baru
+COPY ollama_entrypoint.sh /usr/local/bin/entrypoint.sh
+RUN chmod +x /usr/local/bin/entrypoint.sh
+
+ARG OLLAMA_MODEL_NAME=deepseek-r1:1.5b
+
+# Set entrypoint ke script baru
+ENTRYPOINT ["/usr/local/bin/entrypoint.sh"]
