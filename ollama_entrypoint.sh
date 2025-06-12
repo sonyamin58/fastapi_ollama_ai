@@ -2,7 +2,7 @@
 # my-ai-portfolio-fastapi/entrypoint.sh (rename ollama_modeling.sh to this)
 
 # Define model name (ARG passed via environment)
-MODEL_NAME=${OLLAMA_MODEL_NAME:-deepseek-r1:1.5b} # Pastikan model yang sesuai
+MODEL_NAME=${OLLAMA_MODEL_NAME:-llava:7b} # Pastikan model yang sesuai
 
 echo "Starting Ollama server in background..."
 ollama serve & # Mulai ollama serve di latar belakang

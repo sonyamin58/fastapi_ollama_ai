@@ -8,7 +8,7 @@ RUN apt-get update && apt-get install -y curl
 COPY ollama_entrypoint.sh /usr/local/bin/entrypoint.sh
 RUN chmod +x /usr/local/bin/entrypoint.sh
 
-ARG OLLAMA_MODEL_NAME=deepseek-r1:1.5b
+ARG OLLAMA_MODEL_NAME=llava:7b
 
 # Set entrypoint ke script baru
 ENTRYPOINT ["/usr/local/bin/entrypoint.sh"]

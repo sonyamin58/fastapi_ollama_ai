@@ -22,7 +22,7 @@ app.add_middleware(
 )
 
 # Nama model Ollama yang akan digunakan
-MODEL_NAME = os.getenv("OLLAMA_MODEL_NAME", "deepseek-r1:1.5b") # Default ke llava:7b
+MODEL_NAME = os.getenv("OLLAMA_MODEL_NAME", "llava:7b") # Default ke llava:7b
 
 @app.get("/", response_class=HTMLResponse, include_in_schema=False)
 async def read_root():
@@ -45,9 +45,6 @@ async def chat_with_ai(
     text_input: str = Form(None),
     image_file: UploadFile = File(None)
 ):
-    """
-    Berinteraksi dengan model AI. Menerima input teks dan/atau gambar.
-    """
     if not text_input and not image_file:
         raise HTTPException(status_code=400, detail="Setidaknya satu input (teks atau gambar) diperlukan.")
 

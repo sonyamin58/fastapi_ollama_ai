@@ -9,7 +9,7 @@ services:
       context: .
       dockerfile: Dockerfile.ollama
       args:
-        OLLAMA_MODEL_NAME: deepseek-r1:1.5b # Ganti jika Anda menggunakan model lain
+        OLLAMA_MODEL_NAME: llava:7b # Ganti jika Anda menggunakan model lain
     ports:
       - "11434:11434"
     healthcheck: # <-- PASTIKAN BAGIAN INI ADA DAN BENAR
@@ -30,7 +30,7 @@ services:
     ports:
       - "8001:8001" # Port untuk FastAPI
     environment:
-      OLLAMA_MODEL_NAME: deepseek-r1:1.5b # Pastikan nama model konsisten
+      OLLAMA_MODEL_NAME: llava:7b # Pastikan nama model konsisten
     depends_on:
       ollama-server: # Pastikan ollama-server berjalan sebelum api-app
         condition: service_healthy # Pastikan ollama-server sehat sebelum memulai api-app

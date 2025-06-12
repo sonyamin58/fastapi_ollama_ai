@@ -171,3 +171,10 @@ body {
 .icon-button:hover {
     color: #6200EE;
 }
+
+.uploaded-image-preview {
+    max-width: 50%;
+    height: auto;
+    display: block;
+    margin-top: 10px;
+}

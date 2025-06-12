@@ -66,7 +66,7 @@ function appendMessage(sender, text, imageUrl = null) {
         if (imageUrl) {
             const imgPreview = document.createElement('img');
             imgPreview.src = imageUrl;
-            imgPreview.classList.add('uploaded-image-preview'); // Kelas CSS untuk preview
+            imgPreview.classList.add('uploaded-image-preview');
             messageElement.appendChild(imgPreview);
         }
     }
