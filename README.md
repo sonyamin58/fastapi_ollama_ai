@@ -3,7 +3,7 @@
 Proyek ini adalah *chatbot* AI sederhana yang berjalan di perangkat Anda, menggunakan **Ollama** untuk model AI, **FastAPI** sebagai *backend* API, dan *frontend* web dasar. Aplikasi ini mendukung input teks dan gambar.
 
 ![Tampilan UI Chatbot Tebak Gambar](sample/img/sample-1.png "Contoh Gambar AI Chatbot")
-![Tampilan UI Chatbot Membuat Puisi](sample/img/sample-1.png "Contoh Gambar AI Chatbot")
+![Tampilan UI Chatbot Membuat Puisi](sample/img/sample-2.png "Contoh Gambar AI Chatbot")
 
 ---
 
